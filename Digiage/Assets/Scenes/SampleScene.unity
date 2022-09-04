@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 752481753}
   - component: {fileID: 752481754}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -531,8 +531,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1636926138}
-  speed: 300
-  distanceBetween: 5
+  speed: 100
+  distanceBetween: 2.5
   firstSight: 10
 --- !u!50 &752481751
 Rigidbody2D:
@@ -714,7 +714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44082898ac14254882ebce67da8eebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 150
+  moveSpeed: 200
   animator: {fileID: 1636926143}
 --- !u!50 &1636926142
 Rigidbody2D:

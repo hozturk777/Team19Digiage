@@ -34,4 +34,13 @@ public class Walk : MonoBehaviour
         animationController.WalkAnimation(animator, movement);
         rb.velocity = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, movement.y * moveSpeed * Time.fixedDeltaTime);
     }
+
+    public bool IsWalking()
+    {
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        {
+            return true;
+        }
+        else return false;
+    }
 }
