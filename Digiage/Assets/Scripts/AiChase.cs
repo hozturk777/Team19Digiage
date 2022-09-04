@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AiChase : MonoBehaviour
 {
-
+    private AnimationController animationController;
     public GameObject target;
     public float speed;
     public float distanceBetween;
@@ -15,6 +15,7 @@ public class AiChase : MonoBehaviour
     // Start Boxis called before the first frame update
     void Start()
     {
+        animationController = GetComponent<AnimationController>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -22,16 +23,13 @@ public class AiChase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        chase();
+        Chase();
     }
 
-    private void chase()
+    private void Chase()
     {
         distance = Vector2.Distance(transform.position, target.transform.position);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        animator.SetFloat("Horizontal", direction.x);
-        animator.SetFloat("Vertical", direction.y);
-        animator.SetFloat("Speed", direction.sqrMagnitude);
 
         if (distance < firstSight)
         {
@@ -54,5 +52,9 @@ public class AiChase : MonoBehaviour
                 rb.velocity = Vector2.zero;
             }
         }
+        animationController.WalkAnimation(animator,direction);
+        
     }
+
+    
 }
