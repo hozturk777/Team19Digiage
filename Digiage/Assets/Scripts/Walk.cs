@@ -20,11 +20,16 @@ public class Walk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlayerMove();
+    }
+
+    private void PlayerMove()
+    {
         float Horizontal = Input.GetAxisRaw("Horizontal");
         float Vertical = Input.GetAxisRaw("Vertical");
 
         movement = new Vector2(Horizontal, Vertical);
-        
+
 
         animationController.WalkAnimation(animator, movement);
         rb.velocity = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, movement.y * moveSpeed * Time.fixedDeltaTime);
