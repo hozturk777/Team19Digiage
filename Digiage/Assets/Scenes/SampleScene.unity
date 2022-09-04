@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 752481753}
   - component: {fileID: 752481754}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1636926138}
   speed: 100
-  distanceBetween: 2
+  distanceBetween: 2.5
   firstSight: 10
 --- !u!50 &752481751
 Rigidbody2D:
@@ -568,7 +568,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.000000029802322}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -579,7 +579,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.22840405, y: 0.44059289}
   m_EdgeRadius: 0
 --- !u!95 &752481753
 Animator:
@@ -628,6 +628,7 @@ GameObject:
   - component: {fileID: 1636926143}
   - component: {fileID: 1636926144}
   - component: {fileID: 1636926145}
+  - component: {fileID: 1636926146}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -714,7 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44082898ac14254882ebce67da8eebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 150
+  moveSpeed: 200
   animator: {fileID: 1636926143}
 --- !u!50 &1636926142
 Rigidbody2D:
@@ -795,6 +796,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4b5c355f31c0049a0d6e3648238f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1636926146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636926138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 895ed98392557b24488c387c25cd1999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 519420031}
 --- !u!1 &1664561629
 GameObject:
   m_ObjectHideFlags: 0

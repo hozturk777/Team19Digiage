@@ -29,29 +29,37 @@ public class AiChase : MonoBehaviour
     private void Chase()
     {
         distance = Vector2.Distance(transform.position, target.transform.position);
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         if (distance < firstSight)
         {
-            if (distance > distanceBetween + 1)
+            if (distance > distanceBetween + 0.25f)
             {
                 direction = target.transform.position - transform.position;
                 direction.Normalize();
-                rb.velocity = new Vector2(target.transform.position.x - this.transform.position.x, target.transform.position.y - this.transform.position.y) * speed * Time.fixedDeltaTime;
-
+                rb.velocity = direction * speed * Time.fixedDeltaTime;
+              
             }
-            else if (distance < distanceBetween - 1)
+            else if (distance < distanceBetween - 0.25f)
             {
                 direction = new Vector2(this.transform.position.x - target.transform.position.x, this.transform.position.y - target.transform.position.y);
-
+                direction.Normalize();
                 rb.velocity = direction * speed * Time.fixedDeltaTime;
-                transform.rotation = Quaternion.Euler(Vector3.forward * -angle);
+               
             }
-            else
+            else if (!target.GetComponent<Walk>().IsWalking())
             {
+                direction = target.transform.position - transform.position;
+                direction.Normalize();
                 rb.velocity = Vector2.zero;
+               
             }
         }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
+        //Color color = new Color(0, 0, 1.0f);
+        //Debug.DrawLine(this.transform.position, new Vector3(direction.x,direction.y,0), color);
         animationController.WalkAnimation(animator,direction);
         
     }
