@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Walk : MonoBehaviour
@@ -34,7 +32,7 @@ public class Walk : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-        //rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        rb.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        //rb.velocity = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, movement.y * moveSpeed * Time.deltaTime);
     }
 }
