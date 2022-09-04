@@ -3,7 +3,7 @@ using UnityEngine;
 public class Walk : MonoBehaviour
 {
     public float moveSpeed = 3f;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     public Animator animator;
     Vector2 movement;
 
@@ -12,6 +12,7 @@ public class Walk : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -32,7 +33,6 @@ public class Walk : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        //rb.velocity = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, movement.y * moveSpeed * Time.deltaTime);
+        rb.velocity = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, movement.y * moveSpeed * Time.fixedDeltaTime);
     }
 }
