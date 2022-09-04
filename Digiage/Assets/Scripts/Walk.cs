@@ -24,8 +24,7 @@ public class Walk : MonoBehaviour
         float Vertical = Input.GetAxisRaw("Vertical");
 
         movement = new Vector2(Horizontal, Vertical);
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        
 
         animationController.WalkAnimation(animator, movement);
         rb.velocity = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, movement.y * moveSpeed * Time.fixedDeltaTime);
