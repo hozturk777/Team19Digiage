@@ -32,26 +32,16 @@ public class AiChase : MonoBehaviour
 
         if (distance < firstSight)
         {
-            if (distance > distanceBetween + 0.25f)
             {
                 direction = target.transform.position - transform.position;
                 direction.Normalize();
-                rb.velocity = direction * speed * Time.fixedDeltaTime;
-              
             }
-            else if (distance < distanceBetween - 0.25f)
             {
                 direction = new Vector2(this.transform.position.x - target.transform.position.x, this.transform.position.y - target.transform.position.y);
-                direction.Normalize();
                 rb.velocity = direction * speed * Time.fixedDeltaTime;
-               
             }
-            else if (!target.GetComponent<Walk>().IsWalking())
             {
-                direction = target.transform.position - transform.position;
-                direction.Normalize();
                 rb.velocity = Vector2.zero;
-               
             }
         }
         else
