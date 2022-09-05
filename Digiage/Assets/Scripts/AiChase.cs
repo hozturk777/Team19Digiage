@@ -29,9 +29,11 @@ public class AiChase : MonoBehaviour
     private void Chase()
     {
         distance = Vector2.Distance(transform.position, target.transform.position);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         if (distance < firstSight)
         {
+<<<<<<< HEAD
             {
                 direction = target.transform.position - transform.position;
                 direction.Normalize();
@@ -40,10 +42,28 @@ public class AiChase : MonoBehaviour
                 direction = new Vector2(this.transform.position.x - target.transform.position.x, this.transform.position.y - target.transform.position.y);
                 rb.velocity = direction * speed * Time.fixedDeltaTime;
             }
+=======
+            if (distance > distanceBetween + 1)
+            {
+                direction = target.transform.position - transform.position;
+                direction.Normalize();
+                rb.velocity = new Vector2(target.transform.position.x - this.transform.position.x, target.transform.position.y - this.transform.position.y) * speed * Time.fixedDeltaTime;
+
+            }
+            else if (distance < distanceBetween - 1)
+            {
+                direction = new Vector2(this.transform.position.x - target.transform.position.x, this.transform.position.y - target.transform.position.y);
+
+                rb.velocity = direction * speed * Time.fixedDeltaTime;
+                transform.rotation = Quaternion.Euler(Vector3.forward * -angle);
+            }
+            else
+>>>>>>> parent of 6c7e4c0 (Merge pull request #2 from catcoder03/Mert)
             {
                 rb.velocity = Vector2.zero;
             }
         }
+<<<<<<< HEAD
         else
         {
             rb.velocity = Vector2.zero;
@@ -55,6 +75,9 @@ public class AiChase : MonoBehaviour
             enemyAnimationController.WalkAnimation(animator,direction);
         else
             enemyAnimationController.AttackAnimation(animator,direction);
+=======
+        animationController.WalkAnimation(animator,direction);
+>>>>>>> parent of 6c7e4c0 (Merge pull request #2 from catcoder03/Mert)
         
     }
 
