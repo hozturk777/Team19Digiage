@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class AiChase : MonoBehaviour
 {
-    private EnemyAnimationController enemyAnimationController;
     private AnimationController animationController;
     public GameObject target;
     public float speed;
@@ -16,7 +15,6 @@ public class AiChase : MonoBehaviour
     // Start Boxis called before the first frame update
     void Start()
     {
-        enemyAnimationController = GetComponent<EnemyAnimationController>();
         animationController = GetComponent<AnimationController>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
