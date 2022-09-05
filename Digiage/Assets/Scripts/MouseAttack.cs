@@ -6,12 +6,14 @@ public class MouseAttack : MonoBehaviour
     private Animator attackAnimator;
     public Camera camera;
     private PlayerAnimationController playerAnimationController;
+    private AnimationController animationController;
 
     Vector2 mousePos;
 
     private void Awake()
     {
         playerAnimationController = GetComponent<PlayerAnimationController>();
+        animationController = GetComponent<AnimationController>();
         rb = GetComponent<Rigidbody2D>();
         attackAnimator = GetComponent<Animator>();
     }

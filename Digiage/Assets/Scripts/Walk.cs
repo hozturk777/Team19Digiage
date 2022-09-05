@@ -3,6 +3,7 @@ using UnityEngine;
 public class Walk : MonoBehaviour
 {
     private PlayerAnimationController playerAnimationController;
+    private AnimationController animationController;
     public float moveSpeed = 3f;
     private Rigidbody2D rb;
     public Animator animator;
@@ -13,6 +14,7 @@ public class Walk : MonoBehaviour
     void Start()
     {
         playerAnimationController = GetComponent<PlayerAnimationController>();
+        animationController = GetComponent<AnimationController>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -28,6 +30,7 @@ public class Walk : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         playerAnimationController.WalkAnimation(animator, movement);
+        animationController.WalkAnimation(animator, movement);
         rb.velocity = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, movement.y * moveSpeed * Time.fixedDeltaTime);
     }
 }

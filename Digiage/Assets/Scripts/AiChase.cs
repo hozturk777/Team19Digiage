@@ -3,6 +3,7 @@ using UnityEngine;
 public class AiChase : MonoBehaviour
 {
     private EnemyAnimationController enemyAnimationController;
+    private AnimationController animationController;
     public GameObject target;
     public float speed;
     public float distanceBetween;
@@ -16,6 +17,7 @@ public class AiChase : MonoBehaviour
     void Start()
     {
         enemyAnimationController = GetComponent<EnemyAnimationController>();
+        animationController = GetComponent<AnimationController>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -70,6 +72,7 @@ public class AiChase : MonoBehaviour
         }
         //Color color = new Color(0, 0, 1.0f);
         //Debug.DrawLine(this.transform.position, new Vector3(direction.x,direction.y,0), color);
+<<<<<<< HEAD
 
         if (rb.velocity != Vector2.zero)
             enemyAnimationController.WalkAnimation(animator,direction);
@@ -78,6 +81,9 @@ public class AiChase : MonoBehaviour
 =======
         animationController.WalkAnimation(animator,direction);
 >>>>>>> parent of 6c7e4c0 (Merge pull request #2 from catcoder03/Mert)
+=======
+        animationController.WalkAnimation(animator,direction);
+>>>>>>> parent of 278a091 (Duzenleme)
         
     }
 
