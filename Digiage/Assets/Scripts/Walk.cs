@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Walk : MonoBehaviour
 {
-    private AnimationController animationController;
+    private PlayerAnimationController playerAnimationController;
     public float moveSpeed = 3f;
     private Rigidbody2D rb;
     public Animator animator;
@@ -12,7 +12,7 @@ public class Walk : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animationController = GetComponent<AnimationController>();
+        playerAnimationController = GetComponent<PlayerAnimationController>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -31,7 +31,7 @@ public class Walk : MonoBehaviour
         movement = new Vector2(Horizontal, Vertical);
 
 
-        animationController.WalkAnimation(animator, movement);
+        playerAnimationController.WalkAnimation(animator, movement);
         rb.velocity = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, movement.y * moveSpeed * Time.fixedDeltaTime);
     }
 

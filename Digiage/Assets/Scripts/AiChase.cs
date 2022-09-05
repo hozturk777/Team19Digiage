@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AiChase : MonoBehaviour
 {
-    private AnimationController animationController;
+    private EnemyAnimationController enemyAnimationController;
     public GameObject target;
     public float speed;
     public float distanceBetween;
@@ -15,7 +15,7 @@ public class AiChase : MonoBehaviour
     // Start Boxis called before the first frame update
     void Start()
     {
-        animationController = GetComponent<AnimationController>();
+        enemyAnimationController = GetComponent<EnemyAnimationController>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -60,7 +60,11 @@ public class AiChase : MonoBehaviour
         }
         //Color color = new Color(0, 0, 1.0f);
         //Debug.DrawLine(this.transform.position, new Vector3(direction.x,direction.y,0), color);
-        animationController.WalkAnimation(animator,direction);
+
+        if (rb.velocity != Vector2.zero)
+            enemyAnimationController.WalkAnimation(animator,direction);
+        else
+            enemyAnimationController.AttackAnimation(animator,direction);
         
     }
 

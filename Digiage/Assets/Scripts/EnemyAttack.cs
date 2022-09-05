@@ -1,17 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseAttack : MonoBehaviour
+public class EnemyAttack : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator attackAnimator;
     public Camera camera;
-    private PlayerAnimationController playerAnimationController;
+    private AnimationController animationController;
 
     Vector2 mousePos;
-
     private void Awake()
     {
-        playerAnimationController = GetComponent<PlayerAnimationController>();
+        animationController = GetComponent<AnimationController>();
         rb = GetComponent<Rigidbody2D>();
         attackAnimator = GetComponent<Animator>();
     }
@@ -22,6 +23,6 @@ public class MouseAttack : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         lookDir.Normalize();
 
-        playerAnimationController.AttackAnimation(attackAnimator, lookDir);
+        // animationController.AttackEnemyAnimation(attackAnimator, lookDir);
     }
 }
