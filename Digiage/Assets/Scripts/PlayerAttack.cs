@@ -30,32 +30,33 @@ public class PlayerAttack : MonoBehaviour
         Vector2 lookDir = (mousePos - rb.position).normalized;
         attackPoint.position = this.transform.position + (new Vector3(lookDir.x, lookDir.y, 0) * attackPointRange);
 
-        if (Time.time >= nextAttackTime)
-        {
-            Attack(lookDir);
-            nextAttackTime = Time.time + 1f / attackRate;
-        }
-
-    }
-
-    private void Attack(Vector2 lookDir)
-    {
         if (Input.GetMouseButton(0))
         {
-
-            animationController.AttackAnimation(attackAnimator, lookDir,true);
-
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-            foreach (Collider2D enemy in hitEnemies)
-            {
-                enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
-            }
+            animationController.AttackAnimation(attackAnimator, lookDir, true);
         }
         if (Input.GetMouseButtonUp(0))
         {
             animationController.AttackAnimation(attackAnimator, lookDir, false);
         }
+
+        if (Time.time >= nextAttackTime && Input.GetMouseButton(0))
+        {
+            Attack(lookDir);
+            nextAttackTime = Time.time + 1f / attackRate;
+        }
+        
+
+    }
+
+    private void Attack(Vector2 lookDir)
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+        }
+       
     }
 
     private void OnDrawGizmos()
