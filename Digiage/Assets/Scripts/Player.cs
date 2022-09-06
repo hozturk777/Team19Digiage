@@ -17,5 +17,28 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        if (currentHealth<=0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        GetComponentInChildren<Canvas>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Walk>().enabled = false;
+        GetComponent<PlayerAttack>().enabled = false;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        this.enabled = false;
+    }
+
+    public bool isAlive()
+    {
+        if (currentHealth<=0)
+        {
+            return false;
+        }
+        return true;
     }
 }
