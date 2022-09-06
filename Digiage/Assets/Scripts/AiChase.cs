@@ -8,18 +8,19 @@ public class AiChase : MonoBehaviour
     private AnimationController animationController;
     private Animator animator;
     private Vector2 direction;
-    public Transform firePoint;
+    private Transform firePoint;
     public GameObject target;
     public GameObject bulletPrefab;
-    public float firePointRange;
+    public float firePointRange=0.3f;
     public float speed;
     public float distanceBetween;
     public float firstSight;
-    public float enemyAttackRate;
+    public float enemyAttackRate=3f;
 
     // Start Boxis called before the first frame update
     void Start()
     {
+        firePoint = this.transform.Find("FirePoint");
         animationController = GetComponent<AnimationController>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
