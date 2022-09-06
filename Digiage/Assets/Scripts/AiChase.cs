@@ -32,6 +32,10 @@ public class AiChase : MonoBehaviour
         {
             Chase();
         }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 
     private void Chase()
