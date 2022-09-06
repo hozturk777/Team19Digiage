@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Orb : MonoBehaviour
 {
     public float speed = 2f;
     public Rigidbody2D rb;
@@ -16,13 +16,12 @@ public class Bullet : MonoBehaviour
     {
         if (hitInfo != null)
         {
-            if (hitInfo.name.Equals("Player"))
+            if (hitInfo.name.Equals("Enemy"))
             {
-                hitInfo.GetComponent<Player>().TakeDamage(damage);
-
+                hitInfo.GetComponent<Enemy>().TakeDamage(damage);
             }
         }
-        if (!hitInfo.name.Equals("Enemy")) Destroy(gameObject);
+        if (!hitInfo.name.Equals("Player")) Destroy(gameObject);
     }
 
 }
