@@ -1573,7 +1573,9 @@ MonoBehaviour:
   meleeAttackPointRange: 0.16
   rangeAttackPointRange: 0.16
   attackDamage: 35
+  healQuantity: 10
   attackRate: 5
+  skillRate: 0.5
 --- !u!114 &1636926147
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,12 +23,21 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void TakeHeal(int heal)
+    {
+        if (currentHealth<100)
+        {
+            currentHealth += heal % 100;
+            healthBar.SetHealth(currentHealth);
+        }
+    }
+
     private void Die()
     {
         GetComponentInChildren<Canvas>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Walk>().enabled = false;
-        GetComponent<PlayerAttack>().enabled = false;
+        GetComponent<PlayerCombat>().enabled = false;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         this.enabled = false;
     }
