@@ -32,8 +32,8 @@ public class Walk : MonoBehaviour
 
 
         animationController.WalkAnimation(animator, movement);
-        rb.velocity = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, movement.y * moveSpeed * Time.fixedDeltaTime);
-        //Düzelt
+        rb.velocity = new Vector2(movement.x , movement.y).normalized * moveSpeed * Time.fixedDeltaTime;
+        
     }
 
     public bool IsWalking()
