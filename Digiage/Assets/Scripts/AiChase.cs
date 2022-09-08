@@ -1,4 +1,5 @@
 using UnityEngine;
+using Pathfinding;
 
 public class AiChase : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AiChase : MonoBehaviour
     private Animator animator;
     private Vector2 direction;
     private Transform firePoint;
+    public AIPath aIPath;
     public GameObject target;
     public GameObject bulletPrefab;
     public float firePointRange=0.3f;
@@ -22,7 +24,7 @@ public class AiChase : MonoBehaviour
     {
         firePoint = this.transform.Find("FirePoint");
         animationController = GetComponent<AnimationController>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -41,26 +43,31 @@ public class AiChase : MonoBehaviour
 
     private void Chase()
     {
-        distance = Vector2.Distance(transform.position, target.transform.position);
-
-
+        if (!float.IsInfinity(aIPath.remainingDistance))
+            distance = aIPath.remainingDistance;
+        else distance = (target.transform.position - transform.position).magnitude;
         if (distance < firstSight)
         {
-            if (distance > distanceBetween + 0.25f)
-            {
-                direction = (target.transform.position - transform.position).normalized;
-                rb.velocity = direction * speed * Time.fixedDeltaTime;
 
-            }
-            else if (distance < distanceBetween - 0.25f)
+            if (distance > distanceBetween + 0.75f)
             {
+                aIPath.enabled = true;
+                //Debug.DrawRay(transform.position, aIPath.desiredVelocity.normalized, Color.red);
+                direction = aIPath.desiredVelocity.normalized.normalized;
+            }
+            else if (distance < distanceBetween - 0.75f)
+            {
+                aIPath.enabled = false;
                 direction = new Vector2(this.transform.position.x - target.transform.position.x, this.transform.position.y - target.transform.position.y).normalized;
                 rb.velocity = direction * speed * Time.fixedDeltaTime;
 
             }
             else if (!target.GetComponent<Walk>().IsWalking())
             {
-                direction = (target.transform.position - transform.position).normalized;
+                
+                direction = (target.transform.position-transform.position).normalized;
+                Debug.DrawRay(transform.position, direction, Color.magenta);
+                //Debug.DrawRay(transform.position, direction, Color.red);
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 firePoint.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
                 rb.velocity = Vector2.zero;
@@ -70,14 +77,16 @@ public class AiChase : MonoBehaviour
                     enemyNextAttackTime = Time.time + 1f / enemyAttackRate;
                 }
             }
-            firePoint.position = new Vector3(transform.position.x,transform.position.y-.15f,transform.position.z) + (new Vector3(direction.x, direction.y, 0) * firePointRange);
+            firePoint.position = new Vector3(transform.position.x,transform.position.y-GetComponent<BoxCollider2D>().offset.y,transform.position.z) + (new Vector3(direction.x, direction.y, 0) * firePointRange);
+            Debug.DrawRay(transform.position, aIPath.desiredVelocity.normalized, Color.black,.2f);
+            
         }
         else
         {
             rb.velocity = Vector2.zero;
         }
 
-
+        Debug.DrawRay(transform.position, direction*3, Color.magenta);
         animationController.WalkAnimation(animator, direction);
 
     }

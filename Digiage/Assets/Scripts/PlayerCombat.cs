@@ -7,7 +7,7 @@ public class PlayerCombat : MonoBehaviour
     private Animator attackAnimator;
     private Transform meleeAttackPoint;
     private Transform rangeAttackPoint;
-    public Camera camera;
+    public Camera mainCamera;
     public LayerMask enemyLayers;
     public GameObject bulletPrefab;
     public float attackRange = 0.4f;
@@ -34,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
-        mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDir = (mousePos - rb.position).normalized;
         meleeAttackPoint.position = this.transform.position + (new Vector3(lookDir.x, lookDir.y, 0) * meleeAttackPointRange);
         rangeAttackPoint.position = this.transform.position + (new Vector3(lookDir.x, lookDir.y, 0) * rangeAttackPointRange);
