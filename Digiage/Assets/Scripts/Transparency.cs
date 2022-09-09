@@ -1,24 +1,23 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 
 public class Transparency : MonoBehaviour
 {
-    SpriteRenderer m_Renderer;
-    PolygonCollider2D polygonCollider2D;
+    Tilemap m_Renderer;
     // Start is called before the first frame update
     void Start()
     {
-        polygonCollider2D = GetComponent<PolygonCollider2D>();
         //Grabs the Tilemap Component
-        m_Renderer = GetComponentInParent<SpriteRenderer>();
+        m_Renderer = GetComponentInParent<Tilemap>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Player has entered the trigger");
-        BoxCollider2D boxCollider2D = other.gameObject.GetComponent<BoxCollider2D>();
+
         //Turns object invisible when the player enters its collider space
-        if (boxCollider2D !=null&& boxCollider2D.IsTouching(polygonCollider2D))
+        if (other.gameObject.tag == "Player")
         {
             m_Renderer.color = new Color(1f, 1f, 1f, 0.4f);
         }
@@ -27,9 +26,9 @@ public class Transparency : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Player has exited the trigger");
-        BoxCollider2D boxCollider2D = other.gameObject.GetComponent<BoxCollider2D>();
+
         //Turns object visible when player enters its collider space
-        if (boxCollider2D != null && !boxCollider2D.IsTouching(polygonCollider2D))
+        if (other.gameObject.tag == "Player")
         {
             m_Renderer.color = new Color(1f, 1f, 1f, 1f);
         }
