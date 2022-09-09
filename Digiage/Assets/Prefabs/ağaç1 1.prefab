@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2965680167564741028}
   - component: {fileID: 5874463530473031969}
   - component: {fileID: 8574908850562921822}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "a\u011Fa\xE71 1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,8 +334,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 619672549
-  m_SortingLayer: -1
+  m_SortingLayerID: -2115547473
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0.77, z: 0}

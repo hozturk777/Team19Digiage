@@ -41,6 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Apparence
+  - name: su
     uniqueID: 2149730561
+    locked: 0
+  - name: lamb
+    uniqueID: 818172509
+    locked: 0
+  - name: background
+    uniqueID: 1186921229
+    locked: 0
+  - name: frountground
+    uniqueID: 2179419823
     locked: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7779540730369600758}
   - component: {fileID: 7779540730369600753}
   - component: {fileID: 7779540730369600752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kirmiziBina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,8 +146,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 619672549
-  m_SortingLayer: -1
+  m_SortingLayerID: -2115547473
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.495, y: 1.6225, z: 0}
@@ -228,6 +228,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7779540730369600754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff53feb17ffe28b4b8905b0839445404, type: 3}
+  m_Script: {fileID: 11500000, guid: fab14f39de481cb45ac50bfeac0f2d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

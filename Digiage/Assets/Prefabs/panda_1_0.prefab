@@ -465,8 +465,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 619672549
-  m_SortingLayer: -1
+  m_SortingLayerID: -2115547473
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cbffa746356783c49ac9fa9c19b46334, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -574,14 +574,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895ed98392557b24488c387c25cd1999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  mainCamera: {fileID: 0}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
+  bulletPrefab: {fileID: 0}
   attackRange: 0.5
-  attackPointRange: 0.16
+  meleeAttackPointRange: 0.16
+  rangeAttackPointRange: 0.16
   attackDamage: 35
+  healQuantity: 10
   attackRate: 2
+  skillRate: 0.5
 --- !u!114 &5256945620467948917
 MonoBehaviour:
   m_ObjectHideFlags: 0
