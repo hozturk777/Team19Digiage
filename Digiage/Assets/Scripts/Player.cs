@@ -4,11 +4,14 @@ public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
-
+    private AnimationController animationController;
+    private Animator animator;
     public HealthBar healthBar;
 
     private void Start()
     {
+        animationController = GetComponent<AnimationController>();
+        animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -34,6 +37,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        animationController.DieAnimation(animator,true);
         GetComponentInChildren<Canvas>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Walk>().enabled = false;

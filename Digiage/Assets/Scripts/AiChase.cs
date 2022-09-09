@@ -37,6 +37,9 @@ public class AiChase : MonoBehaviour
         }
         else
         {
+            direction=Vector2.zero;
+            animationController.AiAttackAnimation(animator, direction, false);
+            animationController.WalkAnimation(animator,direction);
             rb.velocity = Vector2.zero;
         }
     }
@@ -49,14 +52,16 @@ public class AiChase : MonoBehaviour
         if (distance < firstSight)
         {
 
-            if (distance > distanceBetween + 0.75f)
+            if (distance > distanceBetween + 0.3f)
             {
+                animationController.AiAttackAnimation(animator, direction, false);
                 aIPath.enabled = true;
                 //Debug.DrawRay(transform.position, aIPath.desiredVelocity.normalized, Color.red);
                 direction = aIPath.desiredVelocity.normalized.normalized;
             }
-            else if (distance < distanceBetween - 0.75f)
+            else if (distance < distanceBetween - 0.3f)
             {
+                animationController.AiAttackAnimation(animator, direction, false);
                 aIPath.enabled = false;
                 direction = new Vector2(this.transform.position.x - target.transform.position.x, this.transform.position.y - target.transform.position.y).normalized;
                 rb.velocity = direction * speed * Time.fixedDeltaTime;
@@ -73,6 +78,7 @@ public class AiChase : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 if (Time.time >= enemyNextAttackTime)
                 {
+                    animationController.AiAttackAnimation(animator, direction, true);
                     AttackToPlayer();
                     enemyNextAttackTime = Time.time + 1f / enemyAttackRate;
                 }

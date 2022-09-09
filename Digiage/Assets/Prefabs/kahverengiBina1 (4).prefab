@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab14f39de481cb45ac50bfeac0f2d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  polygonCollider2D: {fileID: 1293590689948958515}
 --- !u!60 &1293590689948958527
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -212,7 +213,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1293590689948958518}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b595711e6ee2bc046bb93536dfdd4ab2, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

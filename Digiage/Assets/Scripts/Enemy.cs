@@ -4,12 +4,16 @@ using Pathfinding;
 public class Enemy : MonoBehaviour
 {
     public int maxHealth = 100;
+    private AnimationController animationController;
+    private Animator animator;
     int currentHealth;
 
     public HealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
+        animationController = GetComponent<AnimationController>();
+        animator = GetComponentInChildren<Animator>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -23,6 +27,8 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            //animator.SetBool("Dead1", true);
+            animationController.AiDieAnimation(animator, true);
             Die();
         }
     }
@@ -30,6 +36,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         //Die animation
+        
         Debug.Log("Enemy Died!!");
         //Disable the enemy
         GetComponentInChildren<Canvas>().enabled = false;
