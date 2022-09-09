@@ -34,7 +34,7 @@ public class Walk : MonoBehaviour
 
 
         animationController.WalkAnimation(animator, movement);
-        rb.velocity = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, movement.y * moveSpeed * Time.fixedDeltaTime);
+        rb.velocity = new Vector2(movement.x,movement.y).normalized* moveSpeed * Time.fixedDeltaTime;
         
         if (IsWalking()){
             if (!walkSound.isPlaying)
