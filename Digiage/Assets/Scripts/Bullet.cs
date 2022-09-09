@@ -14,12 +14,15 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Player player = hitInfo.GetComponent<Player>();
-        if (player != null)
+        if (hitInfo != null)
         {
-            player.TakeDamage(damage);
+            if (hitInfo.name.Equals("Player"))
+            {
+                hitInfo.GetComponent<Player>().TakeDamage(damage);
+
+            }
         }
-        Destroy(gameObject);
+        if (!hitInfo.name.Equals("Enemy")) Destroy(gameObject);
     }
 
 }

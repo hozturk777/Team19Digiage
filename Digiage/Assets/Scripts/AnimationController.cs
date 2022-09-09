@@ -14,14 +14,5 @@ public class AnimationController : MonoBehaviour
         animator.SetFloat("HorizontalAttack", direction.x);
         animator.SetFloat("VerticalAttack", direction.y);
         animator.SetBool("Attack", isPressed);
-        /*if (Input.GetMouseButtonDown(0))
-        {
-            animator.SetBool("Attack",true);  
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            animator.SetBool("Attack", false);
-        }*/
-        
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         GetComponent<AiChase>().enabled = false;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<AIDestinationSetter>().enabled = false;
         this.enabled = false;
     }
 }
