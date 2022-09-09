@@ -119,9 +119,9 @@ TextureImporter:
       name: panda_8son1_0
       rect:
         serializedVersion: 2
-        x: 156
+        x: 140
         y: 2
-        width: 31
+        width: 47
         height: 44
       alignment: 9
       pivot: {x: 0.5, y: 0.32}
