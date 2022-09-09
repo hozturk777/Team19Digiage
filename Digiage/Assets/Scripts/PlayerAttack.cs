@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     public int attackDamage = 35;
     public float attackRate = 2f;
     float nextAttackTime = 0f;
+    [SerializeField] private AudioSource PlayerAttackSound;
 
     Vector2 mousePos;
 
@@ -32,6 +33,8 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
+            if(!PlayerAttackSound.isPlaying)
+            PlayerAttackSound.Play();
             animationController.AttackAnimation(attackAnimator, lookDir, true);
         }
         if (Input.GetMouseButtonUp(0))
@@ -41,9 +44,11 @@ public class PlayerAttack : MonoBehaviour
 
         if (Time.time >= nextAttackTime && Input.GetMouseButton(0))
         {
+
             Attack(lookDir);
             nextAttackTime = Time.time + 1f / attackRate;
         }
+           
         
 
     }
@@ -56,6 +61,7 @@ public class PlayerAttack : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
+     
        
     }
 

@@ -7,6 +7,7 @@ public class Walk : MonoBehaviour
     private Rigidbody2D rb;
     public Animator animator;
     Vector2 movement;
+    [SerializeField] private AudioSource walkSound;
 
 
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class Walk : MonoBehaviour
         animationController = GetComponent<AnimationController>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -33,14 +35,25 @@ public class Walk : MonoBehaviour
 
         animationController.WalkAnimation(animator, movement);
         rb.velocity = new Vector2(movement.x * moveSpeed * Time.fixedDeltaTime, movement.y * moveSpeed * Time.fixedDeltaTime);
-        //Düzelt
+        
+        if (IsWalking()){
+            if (!walkSound.isPlaying)
+            walkSound.Play();
+        }
+            else 
+                walkSound.Stop();
+            
+
     }
 
     public bool IsWalking()
     {
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
+            
             return true;
+            
+            
         }
         else return false;
     }
