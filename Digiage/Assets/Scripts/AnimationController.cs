@@ -33,4 +33,9 @@ public class AnimationController : MonoBehaviour
         animator.SetBool("Dead1", isPressed);
         animator.SetBool("Dead2", isPressed);
     }
+
+    public void BossAttackAnimation(Animator animator,bool attack)
+    {
+        animator.SetBool("Attack", attack);
+    }
 }

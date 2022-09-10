@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1668467781747967871}
   - component: {fileID: 1668467781747967868}
   - component: {fileID: 1668467781747967869}
-  - component: {fileID: 1668467781747967866}
   m_Layer: 6
   m_Name: EnemySoldier
   m_TagString: Enemy
@@ -106,22 +105,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!58 &1668467781747967866
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668467781747967870}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.03, y: -0.05}
-  serializedVersion: 2
-  m_Radius: 0.05
 --- !u!1 &1668467781764314788
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,13 +324,13 @@ GameObject:
   - component: {fileID: 1668467783171475219}
   - component: {fileID: 1668467783171475216}
   - component: {fileID: 1668467783171475217}
-  - component: {fileID: 1668467783171475230}
   - component: {fileID: 1668467783171475228}
   - component: {fileID: 1668467783171475226}
   - component: {fileID: 1668467782502421444}
   - component: {fileID: 1668467782502421049}
   - component: {fileID: 1668467782502421446}
   - component: {fileID: 1668467782502421447}
+  - component: {fileID: 4269809924126378166}
   m_Layer: 6
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -414,32 +397,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &1668467783171475230
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668467783171475221}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: b595711e6ee2bc046bb93536dfdd4ab2, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.01121334, y: -0.16121328}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.32}
-    oldSize: {x: 0.27, y: 0.45}
-    newSize: {x: 0.27, y: 0.45}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.11242668, y: 0.07878661}
-  m_EdgeRadius: 0
 --- !u!114 &1668467783171475228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,6 +523,22 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!58 &4269809924126378166
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668467783171475221}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.01, y: -0.17}
+  serializedVersion: 2
+  m_Radius: 0.06
 --- !u!1 &1668467783266403057
 GameObject:
   m_ObjectHideFlags: 0

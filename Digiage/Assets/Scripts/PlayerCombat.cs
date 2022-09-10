@@ -7,6 +7,7 @@ public class PlayerCombat : MonoBehaviour
     private Animator attackAnimator;
     private Transform meleeAttackPoint;
     private Transform rangeAttackPoint;
+    public GameObject vfx;
     public Camera mainCamera;
     public LayerMask enemyLayers;
     public GameObject bulletPrefab;
@@ -25,6 +26,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Awake()
     {
+        vfx.SetActive(false);
         rangeAttackPoint = this.transform.Find("RangeAttackPoint");
         meleeAttackPoint = this.transform.Find("MeleeAttackPoint");
         animationController = GetComponent<AnimationController>();
@@ -40,14 +42,17 @@ public class PlayerCombat : MonoBehaviour
         rangeAttackPoint.position = this.transform.position + (new Vector3(lookDir.x, lookDir.y, 0) * rangeAttackPointRange);
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         rangeAttackPoint.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        meleeAttackPoint.transform.Find("AttackEffect").rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         //Ýf else içerisindeki koþullarý animasyonlar le kontrol et eðer animasyonlar karýþýrsa
         if (Input.GetMouseButton(0) && !Input.GetMouseButton(1))
         {
             animationController.AttackAnimation(attackAnimator, lookDir, true);
+            vfx.SetActive(true);
         }
         if (Input.GetMouseButtonUp(0)&&!Input.GetMouseButtonUp(1))
         {
             animationController.AttackAnimation(attackAnimator, lookDir, false);
+            vfx.SetActive(false);
         }
 
         if (Time.time >= nextMeleeAttackTime && Input.GetMouseButton(0) && !Input.GetMouseButton(1))

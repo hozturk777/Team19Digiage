@@ -83,7 +83,7 @@ public class AiChase : MonoBehaviour
                     enemyNextAttackTime = Time.time + 1f / enemyAttackRate;
                 }
             }
-            firePoint.position = new Vector3(transform.position.x,transform.position.y-GetComponent<BoxCollider2D>().offset.y,transform.position.z) + (new Vector3(direction.x, direction.y, 0) * firePointRange);
+            firePoint.position = new Vector3(transform.position.x,transform.position.y-GetComponent<CircleCollider2D>().offset.y,transform.position.z) + (new Vector3(direction.x, direction.y, 0) * firePointRange);
             Debug.DrawRay(transform.position, aIPath.desiredVelocity.normalized, Color.black,.2f);
             
         }
