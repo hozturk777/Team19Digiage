@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
     private AnimationController animationController;
     private Animator animator;
     public HealthBar healthBar;
+    [SerializeField] private AudioSource PlayerDamageSound;
+    [SerializeField] private AudioSource PlayerDeathSound;
+    
 
     private void Start()
     {
@@ -20,8 +23,20 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        if (!PlayerDamageSound.isPlaying){
+            PlayerDamageSound.Play();
+        }
+        else 
+            PlayerDamageSound.Stop();
+        
         if (currentHealth<=0)
         {
+            if (!PlayerDeathSound.isPlaying){
+                PlayerDeathSound.Play();
+        }
+            else 
+                PlayerDeathSound.Stop();
+            
             Die();
         }
     }

@@ -21,6 +21,11 @@ public class AnimationController : MonoBehaviour
         animator.SetTrigger("Dead1");
     }
 
+     public void HealAnimation(Animator animator,bool isPressed)
+    {
+        animator.SetBool("Heal",isPressed);
+    }
+
     public void AiAttackAnimation(Animator animator,Vector2 direction,bool isPressed)
     {
         animator.SetFloat("HorizontalAttackAi", direction.x);

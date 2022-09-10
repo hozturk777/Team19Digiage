@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     int currentHealth;
 
     public HealthBar healthBar;
+    [SerializeField] private AudioSource EnemyDamageSound;
+    [SerializeField] private AudioSource EnemyDeathSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +25,20 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
+        if (!EnemyDamageSound.isPlaying){
+            EnemyDamageSound.Play();
+        }
+        else 
+            EnemyDamageSound.Stop();
         //Play Hurt animation
 
         if (currentHealth <= 0)
         {
+            if (!EnemyDeathSound.isPlaying){
+                EnemyDeathSound.Play();
+        }
+            else 
+                EnemyDeathSound.Stop();
             //animator.SetBool("Dead1", true);
             animationController.AiDieAnimation(animator, true);
             Die();

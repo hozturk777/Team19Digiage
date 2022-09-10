@@ -18,6 +18,7 @@ public class AiChase : MonoBehaviour
     public float distanceBetween;
     public float firstSight;
     public float enemyAttackRate=3f;
+    [SerializeField] private AudioSource GunSound;
 
     // Start Boxis called before the first frame update
     void Start()
@@ -78,6 +79,11 @@ public class AiChase : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 if (Time.time >= enemyNextAttackTime)
                 {
+                    if (!GunSound.isPlaying){
+                        GunSound.Play();
+                    }   
+                    else 
+                        GunSound.Stop();
                     animationController.AiAttackAnimation(animator, direction, true);
                     AttackToPlayer();
                     enemyNextAttackTime = Time.time + 1f / enemyAttackRate;
