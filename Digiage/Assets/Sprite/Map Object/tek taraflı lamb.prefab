@@ -161,8 +161,36 @@ PrefabInstance:
       value: Circle
       objectReference: {fileID: 0}
     - target: {fileID: 8042859341810091046, guid: 157996d3813faac4ab06a584e754f7ed, type: 3}
+      propertyPath: m_ShadowIntensity
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042859341810091046, guid: 157996d3813faac4ab06a584e754f7ed, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042859341810091046, guid: 157996d3813faac4ab06a584e754f7ed, type: 3}
+      propertyPath: m_PointLightInnerAngle
+      value: 73.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042859341810091046, guid: 157996d3813faac4ab06a584e754f7ed, type: 3}
+      propertyPath: m_PointLightOuterAngle
+      value: 125.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042859341810091046, guid: 157996d3813faac4ab06a584e754f7ed, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042859341810091046, guid: 157996d3813faac4ab06a584e754f7ed, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 1.3082536
+      value: 1.6656277
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042859341810091046, guid: 157996d3813faac4ab06a584e754f7ed, type: 3}
+      propertyPath: m_ShadowIntensityEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042859341810091046, guid: 157996d3813faac4ab06a584e754f7ed, type: 3}
+      propertyPath: m_LightVolumeIntensityEnabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8042859341810091046, guid: 157996d3813faac4ab06a584e754f7ed, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
